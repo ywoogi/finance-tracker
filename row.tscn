@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmppfrxg2c01b"]
+
+[ext_resource type="Script" path="res://scripts/row.gd" id="1_4ooho"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uq81x"]
+bg_color = Color(0.156863, 0.192157, 0.247059, 1)
+
+[node name="Row" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+script = ExtResource("1_4ooho")
+
+[node name="Date" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 5
+theme_override_styles/normal = SubResource("StyleBoxFlat_uq81x")
+text = "Date"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Place" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_styles/normal = SubResource("StyleBoxFlat_uq81x")
+text = "Place"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Product" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_styles/normal = SubResource("StyleBoxFlat_uq81x")
+text = "Product"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Price" type="Label" parent="."]
+custom_minimum_size = Vector2(80, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 5
+theme_override_styles/normal = SubResource("StyleBoxFlat_uq81x")
+text = "Price"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Amount" type="Label" parent="."]
+custom_minimum_size = Vector2(80, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 5
+theme_override_styles/normal = SubResource("StyleBoxFlat_uq81x")
+text = "Amount"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Category" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_styles/normal = SubResource("StyleBoxFlat_uq81x")
+text = "Category"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Total" type="Label" parent="."]
+custom_minimum_size = Vector2(80, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 5
+theme_override_styles/normal = SubResource("StyleBoxFlat_uq81x")
+text = "Total"
+vertical_alignment = 1
+autowrap_mode = 2

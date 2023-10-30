@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://ky2f188k5nlh"]
+
+[ext_resource type="Script" path="res://scripts/list_item.gd" id="1_6s6ci"]
+
+[node name="HBox" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_6s6ci")
+
+[node name="Text" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cat/place"
+alignment = 0
+
+[node name="Delete" type="Button" parent="."]
+layout_mode = 2
+text = "x"
+
+[connection signal="button_up" from="Text" to="." method="_on_button_up"]
+[connection signal="button_up" from="Delete" to="." method="_on_delete_button_up"]

@@ -1,0 +1,275 @@
+[gd_scene load_steps=9 format=3 uid="uid://yg8e4mwyfmpv"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_4bfb2"]
+[ext_resource type="Script" path="res://scripts/AddPurchasePanel.gd" id="2_g0py7"]
+[ext_resource type="Script" path="res://scripts/Statistics.gd" id="3_8recf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7d6lo"]
+bg_color = Color(0.392157, 0.478431, 0.592157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pj5j5"]
+bg_color = Color(0.568627, 0.658824, 0.733333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0wdu"]
+bg_color = Color(0.568627, 0.658824, 0.733333, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hfayp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sedjx"]
+bg_color = Color(0.133333, 0.145098, 0.180392, 1)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4bfb2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0705882, 0.0862745, 0.129412, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Purchases" type="VBoxContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+metadata/_edit_lock_ = true
+
+[node name="AddPurchaseB" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -96.0
+offset_right = 75.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_7d6lo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pj5j5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_n0wdu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hfayp")
+text = "+"
+
+[node name="StatisticsB" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -217.0
+offset_top = -96.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_7d6lo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pj5j5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_n0wdu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hfayp")
+text = "Stats"
+
+[node name="AddPurchase" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sedjx")
+script = ExtResource("2_g0py7")
+
+[node name="Day" type="SpinBox" parent="AddPurchase"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 126.0
+offset_right = 137.062
+offset_bottom = 157.0
+min_value = 1.0
+max_value = 31.0
+value = 1.0
+
+[node name="Month" type="SpinBox" parent="AddPurchase"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 125.0
+offset_right = 234.062
+offset_bottom = 156.0
+min_value = 1.0
+max_value = 12.0
+value = 1.0
+
+[node name="Year" type="SpinBox" parent="AddPurchase"]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 126.0
+offset_right = 325.062
+offset_bottom = 157.0
+min_value = 2023.0
+max_value = 3000.0
+value = 2023.0
+
+[node name="Place" type="LineEdit" parent="AddPurchase"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 453.0
+offset_top = 122.0
+offset_right = 591.0
+offset_bottom = 153.0
+placeholder_text = "Place"
+
+[node name="ScrollPlace" type="ScrollContainer" parent="AddPurchase"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.394
+anchor_top = 0.239
+anchor_right = 0.566
+anchor_bottom = 0.796
+offset_left = 0.111973
+offset_top = 0.127995
+offset_right = -0.0320511
+offset_bottom = 0.191959
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Places" type="VBoxContainer" parent="AddPurchase/ScrollPlace"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Product" type="LineEdit" parent="AddPurchase"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 191.0
+offset_right = 195.0
+offset_bottom = 222.0
+placeholder_text = "Product Name"
+
+[node name="Price" type="LineEdit" parent="AddPurchase"]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 190.0
+offset_right = 293.062
+offset_bottom = 221.0
+placeholder_text = "Price"
+
+[node name="Amount" type="SpinBox" parent="AddPurchase"]
+layout_mode = 0
+offset_left = 323.0
+offset_top = 189.0
+offset_right = 406.062
+offset_bottom = 220.0
+max_value = 1e+06
+value = 1.0
+
+[node name="Category" type="LineEdit" parent="AddPurchase"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 59.0
+offset_top = 253.0
+offset_right = 259.0
+offset_bottom = 284.0
+placeholder_text = "Category"
+
+[node name="ScrollCategory" type="ScrollContainer" parent="AddPurchase"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.051
+anchor_top = 0.441
+anchor_right = 0.223
+anchor_bottom = 1.0
+offset_left = 0.247997
+offset_top = 0.231991
+offset_right = 0.103994
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Categories" type="VBoxContainer" parent="AddPurchase/ScrollCategory"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Cancel" type="Button" parent="AddPurchase"]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 398.0
+offset_right = 381.0
+offset_bottom = 448.0
+text = "Cancel"
+
+[node name="Add" type="Button" parent="AddPurchase"]
+layout_mode = 0
+offset_left = 489.0
+offset_top = 399.0
+offset_right = 600.0
+offset_bottom = 451.0
+text = "Add"
+
+[node name="Statistics" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sedjx")
+script = ExtResource("3_8recf")
+
+[node name="Cancel" type="Button" parent="Statistics"]
+layout_mode = 0
+offset_left = 1022.0
+offset_top = 576.0
+offset_right = 1125.0
+offset_bottom = 626.0
+text = "Cancel"
+
+[node name="Label" type="Label" parent="Statistics"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="button_up" from="AddPurchaseB" to="." method="_on_add_purchase_b_button_up"]
+[connection signal="button_up" from="StatisticsB" to="." method="_on_statistics_b_button_up"]
+[connection signal="value_changed" from="AddPurchase/Day" to="AddPurchase" method="_on_day_value_changed"]
+[connection signal="value_changed" from="AddPurchase/Month" to="AddPurchase" method="_on_month_value_changed"]
+[connection signal="value_changed" from="AddPurchase/Year" to="AddPurchase" method="_on_year_value_changed"]
+[connection signal="text_changed" from="AddPurchase/Place" to="AddPurchase" method="_on_place_text_changed"]
+[connection signal="text_submitted" from="AddPurchase/Place" to="AddPurchase" method="_on_place_text_submitted"]
+[connection signal="text_changed" from="AddPurchase/Product" to="AddPurchase" method="_on_product_text_changed"]
+[connection signal="text_submitted" from="AddPurchase/Product" to="AddPurchase" method="_on_product_text_submitted"]
+[connection signal="text_changed" from="AddPurchase/Price" to="AddPurchase" method="_on_price_text_changed"]
+[connection signal="text_submitted" from="AddPurchase/Price" to="AddPurchase" method="_on_price_text_submitted"]
+[connection signal="value_changed" from="AddPurchase/Amount" to="AddPurchase" method="_on_amount_value_changed"]
+[connection signal="text_changed" from="AddPurchase/Category" to="AddPurchase" method="_on_category_text_changed"]
+[connection signal="text_submitted" from="AddPurchase/Category" to="AddPurchase" method="_on_category_text_submitted"]
+[connection signal="button_up" from="AddPurchase/Cancel" to="AddPurchase" method="_on_cancel_button_up"]
+[connection signal="button_up" from="AddPurchase/Add" to="AddPurchase" method="_on_add_button_up"]
+[connection signal="button_up" from="Statistics/Cancel" to="Statistics" method="_on_cancel_button_up"]
